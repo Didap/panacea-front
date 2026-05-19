@@ -1,0 +1,119 @@
+{
+  "app": {
+    "name": "Panacea",
+    "tagline": "La tua salute, finalmente nelle tue mani"
+  },
+  "nav": {
+    "home": "Home",
+    "documents": "Documenti",
+    "patients": "Pazienti",
+    "profile": "Profilo",
+    "logout": "Esci"
+  },
+  "auth": {
+    "login": {
+      "title": "Accedi a Panacea",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Entra",
+      "noAccount": "Non hai un account?",
+      "signupCta": "Registrati"
+    },
+    "register": {
+      "title": "Crea un account",
+      "asPatient": "Sono un cittadino",
+      "asDoctor": "Sono un medico",
+      "firstName": "Nome",
+      "lastName": "Cognome",
+      "email": "Email",
+      "password": "Password",
+      "fiscalCode": "Codice fiscale (facoltativo)",
+      "specialization": "Specializzazione",
+      "licenseNumber": "Numero iscrizione albo",
+      "submit": "Crea account",
+      "haveAccount": "Hai già un account?",
+      "loginCta": "Accedi"
+    },
+    "logout": "Esci"
+  },
+  "citizen": {
+    "home": {
+      "title": "La tua cartella clinica",
+      "subtitle": "Carica e custodisci i tuoi referti, esami e ricette in un unico posto sicuro.",
+      "empty": "Non hai ancora documenti. Inizia caricando il primo referto.",
+      "upload": "Carica documento",
+      "uploadDialog": {
+        "title": "Carica un documento",
+        "fieldTitle": "Titolo",
+        "fieldCategory": "Categoria",
+        "fieldNotes": "Note (facoltativo)",
+        "fieldTakenAt": "Data del documento (facoltativo)",
+        "fieldFile": "File",
+        "cancel": "Annulla",
+        "submit": "Carica"
+      }
+    }
+  },
+  "doctor": {
+    "home": {
+      "title": "Area medico",
+      "subtitle": "Qui troverai i pazienti che ti hanno delegato a consultare la loro cartella clinica.",
+      "empty": "Nessun paziente per ora. Il sistema di deleghe arriva nella prossima release."
+    }
+  },
+  "documents": {
+    "category": {
+      "referto": "Referto",
+      "esame_laboratorio": "Esame di laboratorio",
+      "esame_strumentale": "Esame strumentale",
+      "ricetta": "Ricetta",
+      "lettera_dimissione": "Lettera di dimissione",
+      "certificato": "Certificato",
+      "altro": "Altro"
+    },
+    "actions": {
+      "download": "Scarica",
+      "delete": "Elimina",
+      "view": "Apri"
+    },
+    "list": {
+      "uploadedOn": "Caricato il",
+      "takenOn": "Datato"
+    },
+    "deleteConfirm": "Sei sicuro di voler eliminare questo documento? L'azione è tracciata."
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "back": "Indietro",
+    "yes": "Sì",
+    "no": "No",
+    "required": "Obbligatorio"
+  },
+  "errors": {
+    "UNKNOWN": "Si è verificato un errore. Riprova tra qualche istante.",
+    "VALIDATION_FAILED": "Alcuni campi non sono validi.",
+    "UNAUTHORIZED": "Devi accedere per continuare.",
+    "FORBIDDEN": "Non hai i permessi per questa azione.",
+    "NOT_FOUND": "Non abbiamo trovato la risorsa richiesta.",
+    "CONFLICT": "C'è un conflitto con dati esistenti.",
+    "RATE_LIMITED": "Troppe richieste. Riprova fra poco.",
+    "INTERNAL_ERROR": "Errore interno. Stiamo lavorando per risolverlo.",
+    "EMAIL_ALREADY_EXISTS": "Esiste già un account con questa email.",
+    "INVALID_CREDENTIALS": "Email o password non corretti.",
+    "ACCOUNT_LOCKED": "Account temporaneamente bloccato per troppi tentativi. Riprova più tardi.",
+    "EMAIL_NOT_VERIFIED": "Devi verificare la tua email prima di continuare.",
+    "REFRESH_TOKEN_INVALID": "Sessione non valida. Accedi di nuovo.",
+    "REFRESH_TOKEN_EXPIRED": "Sessione scaduta. Accedi di nuovo.",
+    "REFRESH_TOKEN_REVOKED": "Sessione revocata. Accedi di nuovo.",
+    "ROLE_NOT_ALLOWED": "Il tuo ruolo non può eseguire questa azione.",
+    "USER_NOT_FOUND": "Utente non trovato.",
+    "PROFILE_NOT_FOUND": "Profilo non trovato.",
+    "DOCUMENT_NOT_FOUND": "Documento non trovato.",
+    "DOCUMENT_FILE_MISSING": "Devi allegare un file.",
+    "DOCUMENT_FILE_TOO_LARGE": "Il file supera la dimensione massima consentita.",
+    "DOCUMENT_MIME_NOT_ALLOWED": "Questo tipo di file non è supportato.",
+    "DOCUMENT_MIME_MISMATCH": "Il file dichiarato non corrisponde al contenuto."
+  }
+}
