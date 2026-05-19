@@ -25,8 +25,12 @@
 - [ ] Per-patient timeline of documents
 - [ ] Read-only access enforced by backend RLS
 
-## Phase 3 — Design system polish
+## Phase 3 — Design system
 
-- [ ] Tailwind tokens for clinical palette (calm, accessible, AA contrast)
-- [ ] Dark mode
-- [ ] Mobile-first responsive layouts (precursor to native mobile)
+- [x] `DESIGN.md` synthesised via Ditto MCP from Doctolib IT + One Medical + Withings (2026-05-19)
+- [x] `tokens.css` light + dark with WCAG AA semantic colours
+- [x] Tailwind 4 `@theme` aligned to tokens, Inter + Inter Tight + JetBrains Mono wired in `index.html`
+- [ ] Theme toggle component + persisted preference
+- [ ] Component wrappers (Button, Card, Input, Badge) binding PrimeVue Aura to our tokens
+- [ ] Mobile-first responsive audit pass (precursor to native mobile)
+- [ ] Logo design (currently using Lucide marks as placeholder)
