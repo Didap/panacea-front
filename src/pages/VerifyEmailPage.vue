@@ -18,6 +18,7 @@ const errorMsg = ref<string | null>(null);
 const resendEmail = ref('');
 const resending = ref(false);
 const resent = ref(false);
+const resendError = ref<string | null>(null);
 
 async function verify() {
   state.value = 'verifying';
@@ -32,11 +33,19 @@ async function verify() {
 
 async function resend() {
   resending.value = true;
+  resendError.value = null;
   try {
     await authApi.resendVerification(resendEmail.value);
-  } finally {
-    // Always success-shaped: no signal about whether the account exists or is already verified.
     resent.value = true;
+  } catch (err) {
+    // A real backend response (even an error status) stays success-shaped so it cannot become an
+    // account-enumeration oracle; only a transport failure (no response) is surfaced honestly.
+    if ((err as { response?: unknown })?.response) {
+      resent.value = true;
+    } else {
+      resendError.value = t(errorKey(err));
+    }
+  } finally {
     resending.value = false;
   }
 }
@@ -86,6 +95,7 @@ onMounted(verify);
             outlined
             class="w-full"
           />
+          <Message v-if="resendError" severity="error" :closable="false">{{ resendError }}</Message>
         </form>
 
         <p class="mt-6 text-center text-sm">

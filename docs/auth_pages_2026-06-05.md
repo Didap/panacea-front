@@ -32,6 +32,14 @@ Note: each conditional branch is wrapped in a single `<div>` (not a multi-child 
 avoid a happy-dom fragment-patching error (`nextSibling of null`) when swapping branches after an
 interaction. Harmless in a real browser; the wrapper keeps the test env stable.
 
+## Review follow-ups (Cristiano)
+
+- `VerifyEmailPage.resend()` now stays success-shaped on any real backend response (even an error
+  status, to avoid an enumeration oracle) but surfaces a transport failure (no response) honestly,
+  so a genuine outage no longer tells the user to check an inbox for an email that was never sent.
+- Noted for later (not this PR): a shared `ErrorCode` union mirroring the backend registry, so a
+  renamed code becomes a typecheck failure instead of a silent `errors.UNKNOWN` fallback.
+
 ## Verification
 
 `npm run typecheck`, `npm run lint` (0 errors), `npm run build`, `npm run test` (16/16) all pass.
