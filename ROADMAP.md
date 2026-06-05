@@ -8,6 +8,7 @@
 - [x] Axios client with 401 refresh interceptor
 - [x] Error-code -> i18n key mapping
 - [x] Login + register pages, citizen home (documents), doctor home (placeholder)
+- [x] Auth recovery pages: email verification, password reset, forgot-password (2026-06-05, see `docs/auth_pages_2026-06-05.md`)
 - [x] Vitest + Vue Test Utils on happy-dom (first specs land with the deleghe UI, 2026-06-05)
 - [x] CI workflow (lint + typecheck + build + test) (2026-06-05, see `docs/ci_2026-06-05.md`)
 

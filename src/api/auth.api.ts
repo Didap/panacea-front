@@ -28,4 +28,16 @@ export const authApi = {
   me() {
     return api.get<Me>('/users/me').then((r) => r.data);
   },
+  verifyEmail(token: string) {
+    return api.post('/auth/verify-email', { token }).then(() => undefined);
+  },
+  resendVerification(email: string) {
+    return api.post('/auth/resend-verification', { email }).then(() => undefined);
+  },
+  forgotPassword(email: string) {
+    return api.post('/auth/forgot-password', { email }).then(() => undefined);
+  },
+  resetPassword(token: string, password: string) {
+    return api.post('/auth/reset-password', { token, password }).then(() => undefined);
+  },
 };
