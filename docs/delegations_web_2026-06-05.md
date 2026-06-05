@@ -1,4 +1,4 @@
-# Delegations UX (deleghe) — web — 2026-06-05
+# Delegations UX (deleghe) - web - 2026-06-05
 
 Closes Phase 3 commit 3/3: the whole web surface for the delegation system. The backend
 (controllers, RLS, notifications, cron, `X-Acting-As`) already existed; this adds the UI and the
@@ -61,9 +61,24 @@ requester, OTP step gating, closed-state message). 3 files, 9 tests green.
 - `vite.config.ts` declared a `test` block but imported `defineConfig` from `vite` (no `test` in its
   type); now imported from `vitest/config`, so `vue-tsc -b` build passes.
 
+## Review follow-ups (Cristiano)
+
+- Acting-as session isolation: `auth.clear()` (logout, failed-refresh) and `auth.setTokens()` (any
+  new login, including accept-and-signup) now clear the acting-as store. Without this a second user
+  on the same tab could inherit the first user's `X-Acting-As` on Art.9 health data. Covered by
+  `stores/auth.spec.ts`.
+- `X-Acting-As` is now attached only to `/documents` (the sole route the backend reads it on),
+  an allowlist instead of "everything except /auth".
+- `error-mapping.ts` falls back to `errors.UNKNOWN` when a code has no i18n key (via `te`), so an
+  unmapped backend code never renders a raw `errors.SOMETHING` string.
+
+Known limit: `RevokeDelegationPage` resolves a single delegation by id by fetching the full
+`/delegations` list and `find()`-ing it (no `GET /delegations/:id` endpoint yet). Acceptable for the
+low-traffic email-landing path; revisit if an id endpoint lands.
+
 ## Verification
 
-`npm run typecheck`, `npm run lint` (0 errors), `npm run build`, `npm run test` (9/9) all pass.
+`npm run typecheck`, `npm run lint` (0 errors), `npm run build`, `npm run test` (11/11) all pass.
 Manual end-to-end against the backend (console notifications driver prints OTP + invite URL): request
 -> accept via `/inviti/:token` -> mandate visible on both sides -> "Operi per conto di" scopes the
 documents via `X-Acting-As` with the banner shown -> "Torna a te stesso" clears it.

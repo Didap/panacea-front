@@ -12,9 +12,9 @@ api.interceptors.request.use((config) => {
   if (auth.accessToken) {
     config.headers.set('Authorization', `Bearer ${auth.accessToken}`);
   }
-  // When operating on behalf of a delegator, the backend scopes /documents to their record.
+  // Only /documents is scoped by acting-as; keep the impersonation header off every other route.
   const actingAs = useActingAsStore();
-  if (actingAs.party && !config.url?.includes('/auth/')) {
+  if (actingAs.party && config.url?.startsWith('/documents')) {
     config.headers.set('X-Acting-As', actingAs.party.delegatorUserId);
   }
   return config;
