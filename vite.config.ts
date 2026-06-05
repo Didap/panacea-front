@@ -1,4 +1,5 @@
-import { defineConfig } from 'vite';
+// vitest/config re-exports vite's defineConfig with the `test` field typed.
+import { defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import tailwind from '@tailwindcss/vite';
 import { fileURLToPath, URL } from 'node:url';
