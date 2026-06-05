@@ -9,7 +9,7 @@
 - [x] Error-code -> i18n key mapping
 - [x] Login + register pages, citizen home (documents), doctor home (placeholder)
 - [x] Vitest + Vue Test Utils on happy-dom (first specs land with the deleghe UI, 2026-06-05)
-- [ ] CI workflow (typecheck + lint + tests)
+- [x] CI workflow (lint + typecheck + build + test) (2026-06-05, see `docs/ci_2026-06-05.md`)
 
 ## Phase 1 — Patient documents UX
 
