@@ -5,6 +5,7 @@
   },
   "nav": {
     "home": "Home",
+    "deleghe": "Deleghe",
     "documents": "Documenti",
     "patients": "Pazienti",
     "profile": "Profilo",
@@ -57,9 +58,122 @@
   "doctor": {
     "home": {
       "title": "Area medico",
-      "subtitle": "Qui troverai i pazienti che ti hanno delegato a consultare la loro cartella clinica.",
-      "empty": "Nessun paziente per ora. Il sistema di deleghe arriva nella prossima release."
+      "subtitle": "Gestisci le deleghe dei pazienti che ti hanno autorizzato a consultare la loro cartella clinica.",
+      "delegationsTitle": "Pazienti che ti hanno delegato",
+      "delegationsBody": "Apri la sezione Deleghe per vedere le cartelle a cui hai accesso e operare per conto dei tuoi pazienti.",
+      "delegationsCta": "Vai alle deleghe"
     }
+  },
+  "deleghe": {
+    "title": "Deleghe",
+    "subtitle": "Gestisci chi puo accedere alla tua cartella e le cartelle a cui hai accesso.",
+    "showInactive": "Mostra anche scadute e revocate",
+    "expiresOn": "scade il",
+    "operate": "Operi per conto di {name}",
+    "status": {
+      "active": "Attiva",
+      "expired": "Scaduta",
+      "revoked": "Revocata"
+    },
+    "asDelegate": {
+      "title": "Dati a cui accedo",
+      "subtitle": "Cartelle che altri ti hanno permesso di gestire.",
+      "empty": "Non hai accesso a nessuna cartella. Richiedi una delega per iniziare."
+    },
+    "asDelegator": {
+      "title": "Chi accede ai miei dati",
+      "subtitle": "Persone a cui hai concesso l'accesso alla tua cartella.",
+      "empty": "Nessuno ha accesso alla tua cartella."
+    },
+    "request": {
+      "cta": "Richiedi delega",
+      "title": "Richiedi una delega",
+      "intro": "Inserisci i dati della persona la cui cartella vuoi gestire. Ricevera un invito da accettare.",
+      "email": "Email del titolare",
+      "fiscalCode": "Codice fiscale del titolare",
+      "fiscalInvalid": "Il codice fiscale deve avere 16 caratteri alfanumerici.",
+      "expiresAt": "Scadenza (facoltativa)",
+      "canSubDelegate": "Permetti al titolare di autorizzare la sub-delega",
+      "reason": "Motivo (facoltativo)",
+      "submit": "Invia richiesta",
+      "sent": "Richiesta inviata. Il titolare ricevera un invito via email."
+    },
+    "sub": {
+      "cta": "Sub-delega",
+      "title": "Sub-delega a un collega",
+      "intro": "Autorizza un altro medico ad accedere a questa cartella. Il titolare viene avvisato e puo revocare subito.",
+      "email": "Email del collega",
+      "fiscalCode": "Codice fiscale del collega",
+      "expiresAt": "Scadenza (facoltativa)",
+      "submit": "Crea sub-delega",
+      "created": "Sub-delega creata. Il titolare e stato avvisato."
+    },
+    "revoke": {
+      "cta": "Revoca",
+      "confirm": "Vuoi revocare questa delega? L'accesso viene chiuso subito.",
+      "done": "Delega revocata.",
+      "pageTitle": "Revoca delega",
+      "pageBody": "Vuoi revocare la delega concessa a {name}? L'accesso viene chiuso immediatamente.",
+      "doneBody": "La delega e stata revocata. L'accesso e chiuso.",
+      "notActionable": "Questa delega non e piu attiva o non esiste.",
+      "backToList": "Torna alle deleghe"
+    },
+    "invites": {
+      "title": "Inviti in sospeso",
+      "sentTo": "Invito inviato a {email}",
+      "expiresOn": "scade il",
+      "cancel": "Annulla",
+      "cancelConfirm": "Vuoi annullare questo invito?",
+      "receivedFrom": "{name} ti ha inviato un invito a delegare",
+      "checkEmail": "Controlla la tua email per aprire l'invito."
+    },
+    "record": {
+      "title": "Cartella di {name}",
+      "subtitle": "Stai operando per conto di questa persona. Ogni azione e tracciata."
+    }
+  },
+  "actingAs": {
+    "banner": "Operi per conto di {name}",
+    "exit": "Torna a te stesso"
+  },
+  "inviti": {
+    "badge": "Invito a delegare",
+    "title": "Hai ricevuto una richiesta di delega",
+    "intro": "{name} ({role}) chiede di poter gestire la tua cartella clinica.",
+    "scope": "Accesso",
+    "scopeFull": "Completo (lettura e scrittura)",
+    "reason": "Motivo",
+    "account": "Per l'account",
+    "expiresOn": "scade il",
+    "permanent": "Senza scadenza, finche non la revochi.",
+    "role": {
+      "patient": "cittadino",
+      "doctor": "medico",
+      "institution_admin": "istituzione"
+    },
+    "closed": {
+      "accepted": "Questo invito e gia stato accettato.",
+      "rejected": "Questo invito e stato rifiutato.",
+      "expired": "Questo invito e scaduto.",
+      "cancelled": "Questo invito e stato annullato.",
+      "auto_approved": "Questa delega e gia attiva."
+    },
+    "openCta": "Apri invito",
+    "rejectCta": "Rifiuta",
+    "otpHint": "Abbiamo inviato un codice a 6 cifre a {email}. Inseriscilo per continuare.",
+    "otpSent": "Codice inviato via email.",
+    "createAccount": "Crea il tuo account Panacea per accettare",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "password": "Password",
+    "allowSubDelegate": "Permetti la sub-delega",
+    "acceptSignupCta": "Crea account e concedi delega",
+    "acceptCta": "Concedi delega",
+    "accepted": "Delega concessa.",
+    "accountCreated": "Account creato e delega concessa.",
+    "rejected": "Invito rifiutato.",
+    "loginToAccept": "Accedi con l'account {email} per concedere la delega.",
+    "goToLogin": "Vai al login"
   },
   "documents": {
     "category": {
@@ -114,6 +228,24 @@
     "DOCUMENT_FILE_MISSING": "Devi allegare un file.",
     "DOCUMENT_FILE_TOO_LARGE": "Il file supera la dimensione massima consentita.",
     "DOCUMENT_MIME_NOT_ALLOWED": "Questo tipo di file non è supportato.",
-    "DOCUMENT_MIME_MISMATCH": "Il file dichiarato non corrisponde al contenuto."
+    "DOCUMENT_MIME_MISMATCH": "Il file dichiarato non corrisponde al contenuto.",
+    "DELEGATION_REQUEST_NOT_FOUND": "Invito non trovato. Il link potrebbe non essere valido.",
+    "DELEGATION_REQUEST_EXPIRED": "Questo invito è scaduto.",
+    "DELEGATION_REQUEST_NOT_PENDING": "Questo invito non è più valido.",
+    "DELEGATION_REQUEST_FORBIDDEN": "Questo invito non è destinato al tuo account.",
+    "DELEGATION_TARGET_FISCAL_MISMATCH": "Il codice fiscale non corrisponde a quello dell'invito.",
+    "DELEGATION_TARGET_ALREADY_REGISTERED": "Esiste già un account per questa email. Accedi per accettare.",
+    "DELEGATION_SELF_REQUEST": "Non puoi creare una delega verso te stesso.",
+    "DELEGATION_DUPLICATE_ACTIVE": "Esiste già una delega attiva tra queste persone.",
+    "DELEGATION_NOT_FOUND": "Delega non trovata.",
+    "DELEGATION_NOT_ACTIVE": "Questa delega non è più attiva.",
+    "DELEGATION_SUB_NOT_AUTHORIZED": "Questa delega non permette la sub-delega.",
+    "DELEGATION_SUB_PARENT_INACTIVE": "La delega di origine non è più attiva.",
+    "DELEGATION_REVOKE_FORBIDDEN": "Non puoi agire su questa delega.",
+    "ACTING_AS_NOT_ALLOWED": "Non hai una delega attiva per accedere a questi dati.",
+    "OTP_NOT_REQUESTED": "Richiedi prima il codice di verifica.",
+    "OTP_INVALID": "Codice non corretto.",
+    "OTP_EXPIRED": "Il codice è scaduto. Richiedine uno nuovo.",
+    "OTP_TOO_MANY_ATTEMPTS": "Troppi tentativi. Richiedi un nuovo codice più tardi."
   }
 }

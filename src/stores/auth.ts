@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 import type { AuthenticatedUser, Tokens, UserRole } from '@/types';
 import { tokenStorage } from '@/lib/token-storage';
+import { useActingAsStore } from '@/stores/acting-as';
 
 export const useAuthStore = defineStore('auth', () => {
   const accessToken = ref<string | null>(null);
@@ -11,6 +12,9 @@ export const useAuthStore = defineStore('auth', () => {
   const role = computed<UserRole | null>(() => user.value?.role ?? null);
 
   function setTokens(tokens: Tokens) {
+    // Establishing a new identity must never inherit a previous user's acting-as session
+    // (sessionStorage survives across logins on the same tab).
+    useActingAsStore().clear();
     accessToken.value = tokens.accessToken;
     tokenStorage.setRefresh(tokens.refreshToken);
     user.value = decodeUserFromAccess(tokens.accessToken);
@@ -21,6 +25,9 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   function clear() {
+    // Tearing down the identity (logout, failed refresh) must also drop any acting-as session
+    // so the next user on this tab cannot inherit it.
+    useActingAsStore().clear();
     accessToken.value = null;
     user.value = null;
     tokenStorage.clearRefresh();

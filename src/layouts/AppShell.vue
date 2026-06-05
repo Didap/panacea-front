@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { RouterView, useRouter } from 'vue-router';
+import { RouterLink, RouterView, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { useAuthStore } from '@/stores/auth';
 import { authApi } from '@/api/auth.api';
 import { tokenStorage } from '@/lib/token-storage';
 import { LogOut, Stethoscope, HeartPulse } from 'lucide-vue-next';
+import ActingAsBanner from '@/components/ActingAsBanner.vue';
 
 const auth = useAuthStore();
 const router = useRouter();
@@ -30,9 +31,27 @@ async function logout() {
   <div class="flex min-h-screen flex-col">
     <header class="border-b border-surface-200 bg-white px-6 py-3 shadow-sm">
       <div class="mx-auto flex max-w-6xl items-center justify-between">
-        <div class="flex items-center gap-2">
-          <component :is="RoleIcon" class="size-6 text-brand-700" />
-          <span class="text-lg font-semibold text-surface-900">{{ t('app.name') }}</span>
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-2">
+            <component :is="RoleIcon" class="size-6 text-brand-700" />
+            <span class="text-lg font-semibold text-surface-900">{{ t('app.name') }}</span>
+          </div>
+          <nav class="hidden items-center gap-1 sm:flex">
+            <RouterLink
+              :to="{ name: 'home' }"
+              class="rounded-md px-3 py-1.5 text-sm font-medium text-surface-600 hover:bg-surface-100"
+              active-class="bg-surface-100 text-surface-900"
+            >
+              {{ t('nav.home') }}
+            </RouterLink>
+            <RouterLink
+              :to="{ name: 'deleghe' }"
+              class="rounded-md px-3 py-1.5 text-sm font-medium text-surface-600 hover:bg-surface-100"
+              active-class="bg-surface-100 text-surface-900"
+            >
+              {{ t('nav.deleghe') }}
+            </RouterLink>
+          </nav>
         </div>
         <div class="flex items-center gap-3">
           <span class="hidden text-sm text-surface-500 sm:inline">{{ auth.user?.email }}</span>
@@ -52,6 +71,7 @@ async function logout() {
         </div>
       </div>
     </header>
+    <ActingAsBanner />
     <main class="mx-auto w-full max-w-6xl flex-1 px-6 py-8">
       <RouterView />
     </main>
