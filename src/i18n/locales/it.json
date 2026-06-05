@@ -18,7 +18,8 @@
       "password": "Password",
       "submit": "Entra",
       "noAccount": "Non hai un account?",
-      "signupCta": "Registrati"
+      "signupCta": "Registrati",
+      "forgotPassword": "Password dimenticata?"
     },
     "register": {
       "title": "Crea un account",
@@ -34,6 +35,32 @@
       "submit": "Crea account",
       "haveAccount": "Hai già un account?",
       "loginCta": "Accedi"
+    },
+    "backToLogin": "Torna al login",
+    "forgot": {
+      "title": "Password dimenticata",
+      "subtitle": "Inserisci la tua email: se esiste un account, ti invieremo un link per reimpostare la password.",
+      "submit": "Invia il link",
+      "sent": "Se esiste un account con questa email, ti abbiamo inviato un link per reimpostare la password. Controlla la tua casella."
+    },
+    "reset": {
+      "title": "Reimposta la password",
+      "subtitle": "Scegli una nuova password per il tuo account.",
+      "newPassword": "Nuova password",
+      "confirm": "Conferma password",
+      "tooShort": "La password deve avere almeno 8 caratteri.",
+      "mismatch": "Le due password non coincidono.",
+      "submit": "Aggiorna password",
+      "done": "Password aggiornata. Ora puoi accedere con la nuova password.",
+      "goToLogin": "Vai al login"
+    },
+    "verify": {
+      "title": "Verifica email",
+      "success": "Email verificata. Il tuo account è attivo.",
+      "goToLogin": "Vai al login",
+      "resendHint": "Il link non è valido o è scaduto. Inserisci la tua email per riceverne uno nuovo.",
+      "resendCta": "Reinvia email di verifica",
+      "resent": "Se l'account esiste e non è ancora verificato, ti abbiamo inviato un nuovo link."
     },
     "logout": "Esci"
   },
@@ -218,6 +245,9 @@
     "INVALID_CREDENTIALS": "Email o password non corretti.",
     "ACCOUNT_LOCKED": "Account temporaneamente bloccato per troppi tentativi. Riprova più tardi.",
     "EMAIL_NOT_VERIFIED": "Devi verificare la tua email prima di continuare.",
+    "EMAIL_ALREADY_VERIFIED": "Questa email è già stata verificata. Puoi accedere.",
+    "AUTH_TOKEN_INVALID": "Il link non è valido. Potrebbe essere già stato usato.",
+    "AUTH_TOKEN_EXPIRED": "Il link è scaduto. Richiedine uno nuovo.",
     "REFRESH_TOKEN_INVALID": "Sessione non valida. Accedi di nuovo.",
     "REFRESH_TOKEN_EXPIRED": "Sessione scaduta. Accedi di nuovo.",
     "REFRESH_TOKEN_REVOKED": "Sessione revocata. Accedi di nuovo.",

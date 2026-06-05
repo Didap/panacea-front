@@ -64,10 +64,21 @@ async function submit() {
 
         <Message v-if="errorMsg" severity="error" :closable="false">{{ errorMsg }}</Message>
 
-        <Button type="submit" :label="t('auth.login.submit')" :loading="submitting" class="w-full" />
+        <Button
+          type="submit"
+          :label="t('auth.login.submit')"
+          :loading="submitting"
+          class="w-full"
+        />
       </form>
 
-      <p class="mt-6 text-center text-sm text-surface-500">
+      <p class="mt-4 text-center text-sm">
+        <RouterLink to="/password-dimenticata" class="font-medium text-brand-700 hover:underline">
+          {{ t('auth.login.forgotPassword') }}
+        </RouterLink>
+      </p>
+
+      <p class="mt-2 text-center text-sm text-surface-500">
         {{ t('auth.login.noAccount') }}
         <RouterLink to="/register" class="font-medium text-brand-700 hover:underline">
           {{ t('auth.login.signupCta') }}

@@ -9,6 +9,9 @@ const DelegationsPage = () => import('@/pages/DelegationsPage.vue');
 const DelegatedRecordPage = () => import('@/pages/DelegatedRecordPage.vue');
 const RevokeDelegationPage = () => import('@/pages/RevokeDelegationPage.vue');
 const InvitationPage = () => import('@/pages/InvitationPage.vue');
+const ForgotPasswordPage = () => import('@/pages/ForgotPasswordPage.vue');
+const ResetPasswordPage = () => import('@/pages/ResetPasswordPage.vue');
+const VerifyEmailPage = () => import('@/pages/VerifyEmailPage.vue');
 const NotFoundPage = () => import('@/pages/NotFoundPage.vue');
 const AppShell = () => import('@/layouts/AppShell.vue');
 
@@ -16,6 +19,24 @@ const routes: RouteRecordRaw[] = [
   { path: '/login', component: LoginPage, name: 'login', meta: { public: true } },
   { path: '/register', component: RegisterPage, name: 'register', meta: { public: true } },
   { path: '/inviti/:token', component: InvitationPage, name: 'invitation', meta: { public: true } },
+  {
+    path: '/password-dimenticata',
+    component: ForgotPasswordPage,
+    name: 'forgot-password',
+    meta: { public: true },
+  },
+  {
+    path: '/reset-password/:token',
+    component: ResetPasswordPage,
+    name: 'reset-password',
+    meta: { public: true },
+  },
+  {
+    path: '/verifica-email/:token',
+    component: VerifyEmailPage,
+    name: 'verify-email',
+    meta: { public: true },
+  },
   {
     path: '/',
     component: AppShell,
