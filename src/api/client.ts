@@ -1,5 +1,6 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from 'axios';
 import { useAuthStore } from '@/stores/auth';
+import { useActingAsStore } from '@/stores/acting-as';
 import { tokenStorage } from '@/lib/token-storage';
 
 const baseURL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000/api/v1';
@@ -10,6 +11,11 @@ api.interceptors.request.use((config) => {
   const auth = useAuthStore();
   if (auth.accessToken) {
     config.headers.set('Authorization', `Bearer ${auth.accessToken}`);
+  }
+  // When operating on behalf of a delegator, the backend scopes /documents to their record.
+  const actingAs = useActingAsStore();
+  if (actingAs.party && !config.url?.includes('/auth/')) {
+    config.headers.set('X-Acting-As', actingAs.party.delegatorUserId);
   }
   return config;
 });

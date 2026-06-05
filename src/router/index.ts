@@ -5,12 +5,17 @@ const LoginPage = () => import('@/pages/LoginPage.vue');
 const RegisterPage = () => import('@/pages/RegisterPage.vue');
 const CitizenHomePage = () => import('@/pages/CitizenHomePage.vue');
 const DoctorHomePage = () => import('@/pages/DoctorHomePage.vue');
+const DelegationsPage = () => import('@/pages/DelegationsPage.vue');
+const DelegatedRecordPage = () => import('@/pages/DelegatedRecordPage.vue');
+const RevokeDelegationPage = () => import('@/pages/RevokeDelegationPage.vue');
+const InvitationPage = () => import('@/pages/InvitationPage.vue');
 const NotFoundPage = () => import('@/pages/NotFoundPage.vue');
 const AppShell = () => import('@/layouts/AppShell.vue');
 
 const routes: RouteRecordRaw[] = [
   { path: '/login', component: LoginPage, name: 'login', meta: { public: true } },
   { path: '/register', component: RegisterPage, name: 'register', meta: { public: true } },
+  { path: '/inviti/:token', component: InvitationPage, name: 'invitation', meta: { public: true } },
   {
     path: '/',
     component: AppShell,
@@ -27,6 +32,24 @@ const routes: RouteRecordRaw[] = [
         name: 'doctor-home',
         component: DoctorHomePage,
         meta: { roles: ['doctor'] },
+      },
+      {
+        path: 'deleghe',
+        name: 'deleghe',
+        component: DelegationsPage,
+        meta: { roles: ['patient', 'doctor'] },
+      },
+      {
+        path: 'deleghe/cartella',
+        name: 'delegated-record',
+        component: DelegatedRecordPage,
+        meta: { roles: ['patient', 'doctor'] },
+      },
+      {
+        path: 'deleghe/:id/revoca',
+        name: 'revoke-delegation',
+        component: RevokeDelegationPage,
+        meta: { roles: ['patient', 'doctor'] },
       },
     ],
   },

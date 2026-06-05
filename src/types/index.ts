@@ -74,3 +74,80 @@ export type ApiErrorBody = {
   details?: unknown;
   requestId?: string;
 };
+
+export type DelegationStatus = 'active' | 'revoked' | 'expired';
+
+export type DelegationRequestStatus =
+  | 'pending'
+  | 'accepted'
+  | 'rejected'
+  | 'expired'
+  | 'cancelled'
+  | 'auto_approved';
+
+export type DelegationScope = 'full';
+
+export type PartySummary = {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+};
+
+export type Delegation = {
+  id: string;
+  delegatorUserId: string;
+  delegateUserId: string;
+  parentDelegationId: string | null;
+  scope: DelegationScope;
+  status: DelegationStatus;
+  canSubDelegate: boolean;
+  expiresAt: string | null;
+  grantedAt: string;
+  revokedAt: string | null;
+  revokedByUserId: string | null;
+  revocationReason: string | null;
+  originatingRequestId: string | null;
+  createdAt: string;
+  updatedAt: string;
+  delegator: PartySummary;
+  delegate: PartySummary;
+};
+
+export type DelegationRequest = {
+  id: string;
+  requestingUserId: string;
+  targetEmail: string;
+  targetFiscalCode: string;
+  targetUserId: string | null;
+  parentDelegationId: string | null;
+  requestedScope: DelegationScope;
+  requestedExpiresAt: string | null;
+  requestCanSubDelegate: boolean;
+  reason: string | null;
+  status: DelegationRequestStatus;
+  expiresAt: string;
+  sentAt: string | null;
+  acceptedAt: string | null;
+  rejectedAt: string | null;
+  cancelledAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+  requesterName: string;
+  targetName: string | null;
+};
+
+export type InvitationSummary = {
+  token: string;
+  requesterName: string;
+  requesterRole: UserRole;
+  scope: DelegationScope;
+  expiresAt: string;
+  requestedExpiresAt: string | null;
+  requestCanSubDelegate: boolean;
+  reason: string | null;
+  targetEmail: string;
+  targetHasAccount: boolean;
+  parentDelegationId: string | null;
+  status: DelegationRequestStatus;
+};

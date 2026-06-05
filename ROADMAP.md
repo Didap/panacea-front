@@ -8,8 +8,8 @@
 - [x] Axios client with 401 refresh interceptor
 - [x] Error-code -> i18n key mapping
 - [x] Login + register pages, citizen home (documents), doctor home (placeholder)
+- [x] Vitest + Vue Test Utils on happy-dom (first specs land with the deleghe UI, 2026-06-05)
 - [ ] CI workflow (typecheck + lint + tests)
-- [ ] Vitest setup with happy-dom
 
 ## Phase 1 — Patient documents UX
 
@@ -21,9 +21,23 @@
 
 ## Phase 2 — Doctor side (after delegation system)
 
-- [ ] List of patients who delegated me
-- [ ] Per-patient timeline of documents
-- [ ] Read-only access enforced by backend RLS
+- [x] List of patients who delegated me (the "Dati a cui accedo" section of `/deleghe`)
+- [x] Per-patient record via "Operi per conto di" (`/deleghe/cartella`, scoped by `X-Acting-As`)
+- [ ] Per-patient timeline / richer document view (currently the standard documents panel)
+
+## Phase 4 — Delegation UX (deleghe), commit 3/3 (2026-06-05)
+
+Full design: backend `docs/delegations_design_2026-05-19.md`. Work log:
+`docs/delegations_web_2026-06-05.md`.
+
+- [x] `Richiedi delega` form (citizen-to-citizen), 16-char fiscal-code validation
+- [x] Invitation accept flow at `/inviti/:token` (existing account + create-account, OTP, reject)
+- [x] Mandate list at `/deleghe` (active by default, toggle for scaduti/revocati), revoke
+- [x] Acting-as session + persistent "Operi per conto di {Nome}" banner + "Torna a te stesso"
+- [x] Delegated record view `/deleghe/cartella` (shared `DocumentsPanel`)
+- [x] Doctor sub-delegation UI + inline revoke landing `/deleghe/:id/revoca`
+- [x] i18n for deleghe/inviti/actingAs + delegation/OTP error codes
+- [x] Vitest specs: acting-as store, request dialog, invitation page (9 tests)
 
 ## Phase 3 — Design system
 
